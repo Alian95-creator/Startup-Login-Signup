@@ -1,13 +1,22 @@
 /* Reset & base */
 * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
-body {display:flex; justify-content:center; align-items:center; min-height:100vh; overflow:hidden; position:relative;}
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
+  position:relative;
+  background: linear-gradient(-45deg,#1e88e5,#42a5f5,#00bfa5,#fbc02d);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
 
-/* Hero background ala startup */
-.hero-background {
-  position:absolute; top:0; left:0; width:100%; height:100%;
-  background: linear-gradient(135deg,#042a4b,#42a5f5);
-  clip-path: polygon(0 0,100% 0,100% 75%,0 100%);
-  z-index:-1;
+/* Gradient animasi */
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
 /* Container card */
@@ -15,16 +24,16 @@ body {display:flex; justify-content:center; align-items:center; min-height:100vh
   width: 420px;
   overflow: hidden;
   border-radius: 20px;
-  background: rgba(52, 96, 219, 0.95);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.473);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   position: relative;
 }
 
-/* Form container untuk efek slide “buka buku” */
+/* Form container untuk efek buka buku */
 .form-container {
   display: flex;
   width: 200%;
-  transition: transform 0.8s cubic-bezier(0.77,0,0.175,1); /* smooth slide */
+  transition: transform 0.8s cubic-bezier(0.77,0,0.175,1);
 }
 
 /* Setiap form */
@@ -35,37 +44,25 @@ body {display:flex; justify-content:center; align-items:center; min-height:100vh
   transform: scale(0.95);
   transition: opacity 0.5s, transform 0.5s;
 }
-.form.active {opacity:1; transform: scale(1);} /* form aktif muncul */
+.form.active {opacity:1; transform: scale(1);}
 
 /* Input group + icon */
-.input-group {
-  position: relative; margin-bottom:15px;
-}
-.input-group i {
-  position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#888;
-}
-.input-group input {
-  width:100%; padding:12px 12px 12px 38px;
-  border-radius:8px; border:1px solid #ccc; outline:none; transition:0.3s;
-}
-.input-group input:focus {
-  border-color:#104f86; box-shadow:0 0 10px rgba(30,136,229,0.4);
-}
+.input-group {position: relative; margin-bottom:15px;}
+.input-group i {position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#888;}
+.input-group input {width:100%; padding:12px 12px 12px 38px; border-radius:8px; border:1px solid #ccc; outline:none; transition:0.3s;}
+.input-group input:focus {border-color:#1e88e5; box-shadow:0 0 10px rgba(30,136,229,0.4);}
 
 /* Checkbox */
-.checkbox-container { display:flex; align-items:center; margin-bottom:15px; }
+.checkbox-container {display:flex; align-items:center; margin-bottom:15px;}
 .checkbox-container input {margin-right:8px;}
 
 /* Button hover interaktif */
-.form button {
-  width:100%; padding:14px; background-color:#08378d; border:none; border-radius:8px;
-  color:rgb(238, 226, 226); font-weight:bold; cursor:pointer; transition:0.3s;
-}
-.form button:hover {background-color:#6c92be; transform:translateY(-2px); box-shadow:0 6px 15px rgba(0,0,0,0.2);}
+.form button {width:100%; padding:14px; background-color:#1e88e5; border:none; border-radius:8px; color:white; font-weight:bold; cursor:pointer; transition:0.3s;}
+.form button:hover {background-color:#1565c0; transform:translateY(-2px); box-shadow:0 6px 15px rgba(0,0,0,0.2);}
 
 /* Toggle text */
-.form p {text-align:center; margin-top:15px; color:#f6f7f8;}
-.form span.toggle {color:#e5ebf0; font-weight:bold; cursor:pointer; transition:0.3s;}
+.form p {text-align:center; margin-top:15px; color:#555;}
+.form span.toggle {color:#1e88e5; font-weight:bold; cursor:pointer; transition:0.3s;}
 .form span.toggle:hover {text-decoration:underline;}
 
 /* Efek buka buku slide */
