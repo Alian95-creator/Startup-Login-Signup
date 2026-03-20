@@ -96,5 +96,38 @@ body::before {
 .login-active .form-container { transform: translateX(0%); }
 .signup-active .form-container { transform: translateX(-50%); }
 
+/*Eror card*/
+.error-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.error-card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.error-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #e53935;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width:420px){ .container {width:90%;} .form {padding:40px 20px;} }

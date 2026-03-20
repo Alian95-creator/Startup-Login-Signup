@@ -2,6 +2,7 @@ const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 const container = document.querySelector(".container");
 const toggleButtons = document.querySelectorAll(".toggle");
+const errorCard = document.getElementById("error-card");
 
 // Toggle login/signup
 toggleButtons.forEach(btn => {
@@ -54,3 +55,33 @@ signupForm.addEventListener("submit", (e) => {
   alert("Signup berhasil! Silahkan login sekarang.");
   signupForm.reset();
 });
+
+
+loginForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  // Validasi sederhana
+  const emailValid = email.includes("@") && email.includes(".");
+  const passwordValid = password.length >= 6;
+
+  // Dummy akun bener (biar realistis)
+  const correctEmail = "admin@gmail.com";
+  const correctPassword = "123456";
+
+  if (!emailValid || !passwordValid || email !== correctEmail || password !== correctPassword) {
+    showError();
+  } else {
+    alert("Login berhasil!");
+  }
+});
+
+function showError() {
+  errorCard.classList.add("active");
+}
+
+function closeError() {
+  errorCard.classList.remove("active");
+}
