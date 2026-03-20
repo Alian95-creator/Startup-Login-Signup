@@ -7,10 +7,31 @@ body {
   min-height:100vh;
   overflow:hidden;
   position:relative;
-  background: linear-gradient(-45deg,#1e88e5,#42a5f5,#00bfa5,#fbc02d);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
 }
+
+
+/* VIDEO BACKGROUND */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 0;
+}
+
 
 /* Gradient animasi */
 @keyframes gradientBG {
@@ -19,14 +40,19 @@ body {
   100% {background-position:0% 50%;}
 }
 
+
+
 /* Container card */
 .container {
   width: 420px;
   overflow: hidden;
   border-radius: 20px;
-  background: rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   position: relative;
+  color: white;
 }
 
 /* Form container untuk efek buka buku */
@@ -44,12 +70,13 @@ body {
   transform: scale(0.95);
   transition: opacity 0.5s, transform 0.5s;
 }
+.form h2 { margin-bottom: 25px; text-align: center; font-weight: 600;}
 .form.active {opacity:1; transform: scale(1);}
 
 /* Input group + icon */
 .input-group {position: relative; margin-bottom:15px;}
 .input-group i {position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#888;}
-.input-group input {width:100%; padding:12px 12px 12px 38px; border-radius:8px; border:1px solid #ccc; outline:none; transition:0.3s;}
+.input-group input {width:100%; padding:12px 12px 12px 38px; border-radius:8px; border:1px solid rgba(255,255,255,0.2); outline:none; transition:0.3s;}
 .input-group input:focus {border-color:#1e88e5; box-shadow:0 0 10px rgba(30,136,229,0.4);}
 
 /* Checkbox */
